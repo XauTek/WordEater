@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина - WordEater</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Подключаем API Яндекс Карт -->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш_API_ключ&lang=ru_RU" type="text/javascript"></script>
+</head>
+<body>
+    <!-- Контейнер для системных сообщений -->
+    <div id="system-messages"></div>
+
+    <div class="cart js-cart">
+        <div class="cart-container">
+            <div class="cart-empty-container js-cart-empty-container">
+                <div class="cart-empty">Корзина пуста</div>
+                <div class="icon">
+                    <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M75 25H25L30 75H70L75 25Z" stroke="#9E9E9E" stroke-width="2"/>
+                        <path d="M35 25V20C35 15.5817 38.5817 12 43 12H57C61.4183 12 65 15.5817 65 20V25" stroke="#9E9E9E" stroke-width="2"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="cart-order-container js-cart-order-container">
+                <div class="cart-order">Оформление заказа</div>
+                <ul class="cart-list js-cart-list"></ul>
+                <div class="cart-total-container">
+                    <div class="title">Итого:</div>
+                    <div class="total-price js-cart-total-price">0<span class="rouble">₽</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="cart-btn">
+            <button type="button" class="btn-order" id="orderButton">Оформить заказ</button>
+        </div>
+    </div>
+
+    <div class="delivery-modal">
+        <div class="delivery-container">
+            <button type="button" class="close-modal">×</button>
+            <h2 class="delivery-title">Выберите способ доставки</h2>
+            <div class="delivery-options">
+                <div class="delivery-option">
+                    <input type="radio" id="courier" name="delivery" value="courier">
+                    <label for="courier">Доставка курьером</label>
+                </div>
+                <div class="delivery-option">
+                    <input type="radio" id="pickup" name="delivery" value="pickup">
+                    <label for="pickup">Самовывоз из пункта СДЭК</label>
+                </div>
+            </div>
+            
+            <form class="delivery-form courier-form">
+                <select class="city-select">
+                    <option value="">Выберите город</option>
+                    <option value="Москва">Москва</option>
+                    <option value="Санкт-Петербург">Санкт-Петербург</option>
+                    <option value="Екатеринбург">Екатеринбург</option>
+                    <option value="Хабаровск">Хабаровск</option>
+                </select>
+                <input type="text" placeholder="Улица" required>
+                <input type="text" placeholder="Дом" required>
+                <input type="text" placeholder="Квартира" required>
+                <input type="text" placeholder="Индекс" required>
+            </form>
+
+            <form class="delivery-form pickup-form">
+                <select class="city-select">
+                    <option value="">Выберите город</option>
+                    <option value="Москва">Москва</option>
+                    <option value="Санкт-Петербург">Санкт-Петербург</option>
+                    <option value="Екатеринбург">Екатеринбург</option>
+                    <option value="Хабаровск">Хабаровск</option>
+                </select>
+                <div id="map" style="width: 100%; height: 300px; margin: 15px 0;"></div>
+                <select required>
+                    <option value="">Выберите пункт выдачи СДЭК</option>
+                </select>
+            </form>
+
+            <div class="delivery-buttons">
+                <button type="button" class="delivery-button cancel">Отмена</button>
+                <button type="button" class="delivery-button confirm" disabled>Заказать</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/products.js"></script>
+    <script type="module" src="js/modules/CartData.js"></script>
+    <script type="module" src="js/cart.js"></script>
+</body>
+</html> 
