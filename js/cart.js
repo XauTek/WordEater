@@ -602,7 +602,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 resetCartState();
                             }, 300);
                         }
-                    }, 5000);
+                    }, 3000);
                 }, 300); // Небольшая пауза перед показом сообщения
             }
         });
