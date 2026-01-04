@@ -1,3 +1,6 @@
+.body {
+background-color: #25166d;   
+}
 /* Hero section */
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/hero-bg.png');
@@ -195,4 +198,5 @@
     .feature-item {
         padding: 30px 20px;
     }
+
 } 
